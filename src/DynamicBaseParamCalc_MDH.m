@@ -23,7 +23,8 @@ function base = DynamicBaseParamCalc_MDH(rbt_df, dyn)
     base.beta_param = beta_param;
     base.base_param = base_param;
     base.prime2beta = inertia2beta;
-    base.H_b = collect(expand(simplify(H_b)));
+    % base.H_b = collect(expand(simplify(H_b)));
+    base.H_b = H_b;
     base.H = dyn.H;
     
     

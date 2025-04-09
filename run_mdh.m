@@ -12,11 +12,14 @@ rbt.base = DynamicBaseParamCalc_MDH(rbt.rbt_df, rbt.dyn);
 
 
 %% save output
-out_path = "output/";
-[status, msg, msgID] = mkdir('output');
+[filepath,name,ext] = fileparts(mfilename("fullpath"));
+out_path = fullfile(filepath,"output");
+rbt.rbt_df.out_path = out_path;
+rbt_data_path = fullfile(out_path,rbt.rbt_df.name+"_rbt.mat");
+[status, msg, msgID] = mkdir(out_path);
 addpath(out_path);
 
-save output/rbt;
+save(rbt_data_path,"rbt");
 
 %% H matrix for prime parameter
 make_H_function(rbt);
